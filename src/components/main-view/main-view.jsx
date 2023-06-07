@@ -17,7 +17,7 @@ export const MainView = () => {
                 name:"Matt Reeves",
                 bio:"Matt Reeves is an American film director, producer, and screenwriter. He first gained recognition for the WB drama series Felicity, which he co-created with J. J. Abrams. Reeves came to widespread attention for directing the hit monster film Cloverfield.",
                 birth:"1966"},
-                image:"https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51w2zJbuwOL._AC_UF894,1000_QL80_.jpg"
+                image:"https://cdn.shopify.com/s/files/1/1416/8662/products/28WeeksLater_2007_original_film_art.jpg?v=1609983782"
         },
         {
             id: 2,
