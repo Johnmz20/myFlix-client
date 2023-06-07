@@ -27420,7 +27420,7 @@ $RefreshReg$(_c, "MovieCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"i1je8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"l3XFb"}],"7wKI2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"i1je8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"l3XFb","prop-types":"7wKI2"}],"7wKI2":[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28345,6 +28345,6 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"i1je8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"l3XFb"}],"lJZlQ":[function() {},{}]},["2iwlS","9paqM","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"i1je8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"l3XFb","prop-types":"7wKI2"}],"lJZlQ":[function() {},{}]},["2iwlS","9paqM","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
