@@ -10,7 +10,7 @@ useEffect(() => {
     fetch('https://myflixappjm.herokuapp.com/movies')
     .then((response)=> response.json())
     .then((data)=> {
-        const moviesFromApi =data.docs.map((movies)=> {
+        const moviesFromApi =data.map((movies)=> {
             return{
                 _id: movies.id,
                 Title: movies.Title,
