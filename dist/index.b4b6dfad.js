@@ -28416,7 +28416,7 @@ const LoginView = ({ onLoggedIn  })=>{
         };
         fetch("https://myflixappjm.herokuapp.com/login", {
             method: "POST",
-            header: {
+            headers: {
                 "conent-Type": "application/json"
             },
             body: JSON.stringify(data)
@@ -28441,7 +28441,8 @@ const LoginView = ({ onLoggedIn  })=>{
                         type: "text",
                         value: username,
                         onChange: (e)=>setUsername(e.target.value),
-                        required: true
+                        required: true,
+                        minLength: "3"
                     }, void 0, false, {
                         fileName: "src/components/Login-View/login-view.jsx",
                         lineNumber: 41,
@@ -28463,13 +28464,13 @@ const LoginView = ({ onLoggedIn  })=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/Login-View/login-view.jsx",
-                        lineNumber: 50,
+                        lineNumber: 51,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Login-View/login-view.jsx",
-                lineNumber: 48,
+                lineNumber: 49,
                 columnNumber: 11
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28477,7 +28478,7 @@ const LoginView = ({ onLoggedIn  })=>{
                 children: "submit"
             }, void 0, false, {
                 fileName: "src/components/Login-View/login-view.jsx",
-                lineNumber: 57,
+                lineNumber: 58,
                 columnNumber: 11
             }, undefined)
         ]
