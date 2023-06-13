@@ -7,21 +7,12 @@ import { SignupView } from "../signup-view/signup-view";
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
-<<<<<<< Updated upstream
-    const [user, setUser] = useState(storedUser ? storedUser : null);
-    const [movies, setMovies] = useState([]);
-    const [selectedMovie, setSelectedMovie] = useState(null);
-    const [token, setToken] = useState(storedToken ? storedToken : null);
-    useEffect(() => {
-        if (!token) {
-=======
     const [user, setUser] = useState(storedUser? storedUser : null);
     const [token, setToken] = useState(storedToken? storedToken : null);
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
     useEffect(() => {
         if (!token){
->>>>>>> Stashed changes
             return;
         }
 
@@ -30,10 +21,7 @@ export const MainView = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-<<<<<<< Updated upstream
-=======
                 console.log('data',data);
->>>>>>> Stashed changes
                 const moviesFromApi = data.map((movies) => {
                     return {
                         _id: movies.id,
@@ -50,10 +38,6 @@ export const MainView = () => {
                     };
                 });
                 setMovies(moviesFromApi);
-<<<<<<< Updated upstream
-=======
-                
->>>>>>> Stashed changes
             });
     }, [token]);
 
@@ -73,9 +57,7 @@ export const MainView = () => {
     }
 
     if (selectedMovie) {
-<<<<<<< Updated upstream
-        return <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
-=======
+
         
         return (
         <>
@@ -86,7 +68,6 @@ export const MainView = () => {
         <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
         </>
         )
->>>>>>> Stashed changes
     }
 
     if (movies.length === 0) {
@@ -106,10 +87,7 @@ export const MainView = () => {
             <button
                 onClick={() => {
                     setUser(null);
-<<<<<<< Updated upstream
                     setToken(null);
-=======
->>>>>>> Stashed changes
                 }}
             >
                 logout
