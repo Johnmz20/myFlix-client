@@ -1,75 +1,54 @@
 import { useState } from "react";
 
 export const SignupView = () => {
-const [username, setUsername]= useState("");    
-const [password, setPassword]= useState("");
-const [email, setEmail]= useState("");
-const [Birthday, setBirthday]= useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [Birthday, setBirthday] = useState("");
 
-    const handleSubmit= (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
 
-        const data={
+        const data = {
             Username: username,
             Password: password,
             Email: email,
-            Birthday: Birthday
+            Birthday: Birthday,
         };
         fetch("", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
-                "content-type": "application/json"
-            }
-        }).then((Response)=> {
-            if(Response.ok){
+                "content-type": "application/json",
+            },
+        }).then((Response) => {
+            if (Response.ok) {
                 alert("signup successful :D");
                 window.location.reload();
-            }else{
+            } else {
                 alert("signup failed :(");
             }
         });
     };
-    return(
-    <form onSubmit={handleSubmit}>
-        <label>
-            Username:
-            <input
-            type="text"
-            value={username}
-            onChange={(e)=> setUsername(e.target.value)}
-            required
-            minLength="4"
-            />
-        </label>
-        <label>
-            Password:
-            <input
-            type="password"
-            value={password}
-            onChange={(e)=> setPassword(e.target.value)}
-            required
-            />
-        </label>
-        <label>
-            Email:
-            <input
-            type="text"
-            value={email}
-            onChange={(e)=> setEmail(e.target.value)}
-            required
-            />
-        </label>
-        <label>
-            Birthday:
-            <input
-            type="date"
-            value={Birthday}
-            onChange={(e)=> setBirthday(e.target.value)}
-            required
-            />
-        </label>
-        <button type="submit">submit</button>
-    </form>
+    return (
+        <form onSubmit={handleSubmit}>
+            <label>
+                Username:
+                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required minLength="4" />
+            </label>
+            <label>
+                Password:
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            </label>
+            <label>
+                Email:
+                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            </label>
+            <label>
+                Birthday:
+                <input type="date" value={Birthday} onChange={(e) => setBirthday(e.target.value)} required />
+            </label>
+            <button type="submit">submit</button>
+        </form>
     );
 };
