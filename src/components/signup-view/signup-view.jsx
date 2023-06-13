@@ -15,7 +15,7 @@ export const SignupView = () => {
             Email: email,
             Birthday: Birthday,
         };
-        fetch("", {
+        fetch("https://myflixappjm.herokuapp.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
