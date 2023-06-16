@@ -1,59 +1,43 @@
 import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
-import { MovieView } from "../movie view/movie-view";
+import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../Login-View/login-view";
 import { SignupView } from "../signup-view/signup-view";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    const storedToken = localStorage.getItem("token");
-<<<<<<< Updated upstream
-    const [user, setUser] = useState(storedUser ? storedUser : null);
-    const [movies, setMovies] = useState([]);
-    const [selectedMovie, setSelectedMovie] = useState(null);
-    const [token, setToken] = useState(storedToken ? storedToken : null);
-    useEffect(() => {
-        if (!token) {
-=======
-    const [user, setUser] = useState(storedUser? storedUser : null);
-    const [token, setToken] = useState(storedToken? storedToken : null);
-    const [movies, setMovies] = useState([]);
-    const [selectedMovie, setSelectedMovie] = useState(null);
+  const storedToken = localStorage.getItem("token");
+  const [user, setUser] = useState(storedUser? storedUser : null);
+  const [token, setToken] = useState(storedToken? storedToken : null);
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
     useEffect(() => {
         if (!token){
->>>>>>> Stashed changes
             return;
         }
 
         fetch("https://myflixappjm.herokuapp.com/movies", {
-            headers: { Authorization: "Bearer ${token}" },
+            headers: { Authorization: `Bearer ${token}` },
         })
             .then((response) => response.json())
             .then((data) => {
-<<<<<<< Updated upstream
-=======
-                console.log('data',data);
->>>>>>> Stashed changes
-                const moviesFromApi = data.map((movies) => {
+                console.log(data);
+                const moviesFromApi = data.map((movie) => {
                     return {
-                        _id: movies.id,
-                        Title: movies.Title,
-                        ImagePath: movies.ImagePath,
-                        Description: movies.Description,
+                        _id: movie.id,
+                        title: movie.Title,
+                        ImagePath: movie.ImagePath,
+                        Description: movie.Description,
                         Genre: {
-                            Name: movies.Genre.Name,
+                            Name: movie.Genre.Name,
                         },
                         Director: {
-                            Name: movies.Director.Name,
+                            Name: movie.Director.Name,
                         },
-                        Featured: movies.Featured.toString(),
+                        Featured: movie.Featured.toString(),
                     };
                 });
                 setMovies(moviesFromApi);
-<<<<<<< Updated upstream
-=======
-                
->>>>>>> Stashed changes
             });
     }, [token]);
 
@@ -73,56 +57,54 @@ export const MainView = () => {
     }
 
     if (selectedMovie) {
-<<<<<<< Updated upstream
-        return <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
-=======
+
         
         return (
         <>
         <button onClick={()=> {
-            setUser(null); localStorage.clear();
+            setUser(null);
+            setToken(null);
+            localStorage.clear();
         }}
         >logout</button>
         <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
         </>
         )
->>>>>>> Stashed changes
     }
 
     if (movies.length === 0) {
         return (
         <>
         <button onClick={()=> {
-            setUser(null); localStorage.clear();
+            setUser(null);
+            setToken(null);
+            localStorage.clear();
         }}
         >logout</button>
         <div> this list is empty!</div>
         </>
         )
     }
-
     return (
         <div>
-            <button
-                onClick={() => {
-                    setUser(null);
-<<<<<<< Updated upstream
-                    setToken(null);
-=======
->>>>>>> Stashed changes
-                }}
+          <button
+              onClick={() => {
+                setUser(null);
+                setToken(null);
+                localStorage.clear();
+              }}
             >
-                logout
+              Logout
             </button>
-            {movies.map((movies) => (
-                <MovieCard
-                    key={movies.Title}
-                    movie={movies}
-                    onMovieClick={(newSelectedMovie) => {
-                        setSelectedMovie(newSelectedMovie);
-                    }}
-                />
-            ))}
+          {movies.map((movie) => (
+            <MovieCard
+              key={movie.Title}
+              movie={movie}
+              onMovieClick={(newSelectedMovie) => {
+                setSelectedMovie(newSelectedMovie);
+              }}
+            />
+          ))}
         </div>
-    );
+      );
 };
