@@ -46590,7 +46590,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"i1je8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"l3XFb","react-bootstrap/Button":"aPzUt","prop-types":"7wKI2","react-router":"dbWyW","react-router-dom":"9xmpe"}],"4OGiN":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"i1je8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"l3XFb","react-bootstrap/Button":"aPzUt","prop-types":"7wKI2","react-router-dom":"9xmpe","react-router":"dbWyW"}],"4OGiN":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$73d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
