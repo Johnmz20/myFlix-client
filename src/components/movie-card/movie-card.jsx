@@ -4,6 +4,10 @@ import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const MovieCard = ({movie}) => {
+  if (!movie) {
+    // Render a fallback or return null if appropriate
+    return null;
+  }
     return (
         <Card 
       className='h-100'
@@ -38,5 +42,5 @@ MovieCard.propTypes={
         }),
         Featured: PropTypes.string.isRequired
     }).isRequired,
-    onBackClick: PropTypes.func.isRequired
+    onBackClick: PropTypes.func
 };

@@ -91,6 +91,10 @@ export const MainView = () => {
               <Col md={8}>
                 <MovieView 
         movie={movies}
+        onLoggedIn={(user, token) => {
+          setUser(user);
+          setToken(token);
+        }}
         />
               </Col>
             )}
@@ -122,7 +126,13 @@ export const MainView = () => {
             </>
           }
           />
+          
             </Routes>
+            <Button 
+              onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}
+            md={5}>
+              Logout
+            </Button>
             </Row>
             </BrowserRouter>
     )

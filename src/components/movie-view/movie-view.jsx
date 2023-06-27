@@ -32,7 +32,7 @@ export const MovieView = ({movie, storedUser, storedToken }) => {
                 <span>{movie.Featured}</span>
             </div>
             <Link to={'/'}>
-            <Button varient="primary">Back</Button>
+            <Button varient="primary"md={5}>Back</Button>
             </Link>
         </div>
     );
