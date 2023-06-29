@@ -9,15 +9,12 @@ import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedUser = JSON.parse(localStorage.getItem("users"));
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser? storedUser : null);
   const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
-    useEffect(() => {
-        if (!token){
-            return;
-        }
+  useEffect(()=> { if(!token) { console.log('/signup'); return;}
 
         fetch("https://myflixappjm.herokuapp.com/movies", {
             headers: { Authorization: `Bearer ${token}` },
@@ -27,7 +24,7 @@ export const MainView = () => {
                 console.log('data',data);
                 const moviesFromApi = data.map((movie) => {
                     return {
-                        _id: movie._id,
+                        id: movie._id,
                         title: movie.Title,
                         ImagePath: movie.ImagePath,
                         Description: movie.Description,
@@ -113,7 +110,7 @@ export const MainView = () => {
               <>
               {movies.map(movie => (
               <Col 
-                key={movie._id} 
+                key={movie.id} 
                 md={3}
                 className='mb-4'>
                 <MovieCard 
@@ -121,6 +118,11 @@ export const MainView = () => {
                   />
                 </Col>
               ))}
+              <Button 
+              onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}
+            md={5}>
+              Logout
+            </Button>
               </>
             )}
             </>
@@ -128,11 +130,6 @@ export const MainView = () => {
           />
           
             </Routes>
-            <Button 
-              onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}
-            md={5}>
-              Logout
-            </Button>
             </Row>
             </BrowserRouter>
     )

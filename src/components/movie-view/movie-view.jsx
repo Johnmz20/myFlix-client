@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 
 export const MovieView = ({movie, storedUser, storedToken }) => {
     const {movieId}= useParams();
-    const movies = movie.find((m)=> m._id===movieId)
+    const movies = movie.find((m)=> m.id===movieId)
     return (
         <div>
             <div>
