@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {NavigationBar} from "../navigation-bar/navigation-bar";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("users"));
@@ -43,6 +44,13 @@ export const MainView = () => {
 
     return(
       <BrowserRouter>
+      <NavigationBar 
+        user={user}
+        onLoggedOut={() => {
+            setUser(null);
+            setToken(null)
+        }}
+        />
       <Row className="justify-content-md-center">
         <Routes>
           <Route
@@ -118,11 +126,6 @@ export const MainView = () => {
                   />
                 </Col>
               ))}
-              <Button 
-              onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}
-            md={5}>
-              Logout
-            </Button>
               </>
             )}
             </>
