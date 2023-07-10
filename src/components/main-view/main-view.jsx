@@ -15,6 +15,13 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser? storedUser : null);
   const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
+
+  const onLogout = () => {
+    setUser(null);
+    setToken(null);
+    localStorage.clear();
+}
+
   useEffect(()=> { if(!token) { console.log('/signup'); return;}
 
         fetch("https://myflixappjm.herokuapp.com/movies", {
@@ -22,7 +29,7 @@ export const MainView = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log('data',data);
+                console.log('main view', data);
                 const moviesFromApi = data.map((movie) => {
                     return {
                         id: movie._id,
@@ -60,7 +67,7 @@ export const MainView = () => {
           {user ? (
             <Navigate to="/"/>
           ):(
-            <Col md={5}>
+            <Col>
               <SignupView/>
             </Col>
           )}
@@ -74,11 +81,13 @@ export const MainView = () => {
                         {!user ? (
                             <Navigate to="/login" replace />
                         ) : (
-                            <Col>
+                            <Col md={5}>
                                <ProfileView
                               user={user}
                               token={token}
                               setUser={setUser}
+                              movies={movies}
+                              onLogout={onLogout}
                                 />
                             </Col>
                         )}</>
@@ -112,12 +121,11 @@ export const MainView = () => {
             ): (
               <Col md={8}>
                 <MovieView 
-        movie={movies}
-        onLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }}
-        />
+                  movies={movies}
+                  user={user}
+                  setUser={setUser}
+                  token={token}
+                  />
               </Col>
             )}
               </>

@@ -3,8 +3,9 @@ import  PropTypes  from "prop-types";
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-export const MovieCard = ({movie}) => {
-  if (!movie) {
+export const MovieCard = (data) => {
+  console.log('moviedata', data)
+  if (!data.movie) {
     // Render a fallback or return null if appropriate
     return null;
   }
@@ -15,13 +16,13 @@ export const MovieCard = ({movie}) => {
       >
         <Card.Img
           variant='top' 
-          src={movie.ImagePath}
+          src={data?.movie.ImagePath}
           className='border'
         />
         <Card.Body>
-          <Card.Title>{movie.title}</Card.Title>
-          <Card.Text>{movie.Director.Name}</Card.Text>
-          <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+          <Card.Title>{data?.movie.title}</Card.Title>
+          <Card.Text>{data?.movie.Director.Name}</Card.Text>
+          <Link to={`/movies/${encodeURIComponent(data?.movie.id)}`}>
             <Button variant="primary">Open</Button>
           </Link>
         </Card.Body>
@@ -41,6 +42,6 @@ MovieCard.propTypes={
             Name: PropTypes.string.isRequired
         }),
         Featured: PropTypes.string.isRequired
-    }).isRequired,
+    }),
     onBackClick: PropTypes.func
 };
