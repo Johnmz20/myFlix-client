@@ -2,6 +2,7 @@ import React from "react";
 import  PropTypes  from "prop-types";
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './movie-card.scss';
 
 export const MovieCard = (data) => {
   console.log('moviedata', data)
@@ -10,20 +11,20 @@ export const MovieCard = (data) => {
     return null;
   }
     return (
-        <Card 
-      className='h-100'
+        <Card style={{backgroundColor:'darkgrey'}}
+        className='h-100'
       border='secondary'
       >
         <Card.Img
           variant='top' 
           src={data?.movie.ImagePath}
-          className='border'
+          className='h-100'
         />
-        <Card.Body>
-          <Card.Title>{data?.movie.title}</Card.Title>
-          <Card.Text>{data?.movie.Director.Name}</Card.Text>
+        <Card.Body >
+          <Card.Title className="color-form">{data?.movie.title}</Card.Title>
+          <Card.Text className="color-text">{data?.movie.Director.Name}</Card.Text>
           <Link to={`/movies/${encodeURIComponent(data?.movie.id)}`}>
-            <Button variant="primary">Open</Button>
+            <Button  variant="primary" className='button-color'>Open</Button>
           </Link>
         </Card.Body>
       </Card>

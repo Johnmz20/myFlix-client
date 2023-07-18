@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import './login-view.scss';
 
 export const LoginView = ({ onLoggedIn }) => {
   const [Username, setUsername] = useState("");
@@ -44,18 +45,19 @@ export const LoginView = ({ onLoggedIn }) => {
     // handleSubmit is the callback of onSubmit, tells the login API to validate user and password
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formUsername">
-      <Form.Label>Username:</Form.Label>
-        <Form.Control
+      <Form.Label className='font-style'>Username:</Form.Label>
+        <Form.Control mb={3}
           type="text"
           value={Username}
           onChange={(e) => setUsername(e.target.value)}
           required
           minLength="5"
+          className="color-form"
         />
       </Form.Group>
       
       <Form.Group controlId="formPassword">
-        <Form.Label>Password:</Form.Label>
+        <Form.Label className='font-style' >Password:</Form.Label>
         <Form.Control
           type="Password"
           value={Password}
@@ -63,7 +65,7 @@ export const LoginView = ({ onLoggedIn }) => {
           required
         />
       </Form.Group>
-      <Button md={3}type="submit" variant="primary">Submit</Button>
+      <Button md={3} type="submit" id='btn-login-nf'>Submit</Button>
     </Form>
   );
 }; 

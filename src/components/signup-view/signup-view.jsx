@@ -33,24 +33,26 @@ export const SignupView = () => {
         });
     };
     return (
-        <Form onSubmit={handleSubmit}>
+        <>
+        <Form onSubmit={handleSubmit} md={3}>
             <Form.Group controlId="controlUsername">
-               <Form.Label>Username: </Form.Label>
-                <Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} required minLength="4" />
+               <Form.Label className='font-style'>Username: </Form.Label>
+                <Form.Control md={3} type="text" value={username} onChange={(e) => setUsername(e.target.value)} required minLength="4" />
             </Form.Group>
             <Form.Group controlId="controlPassword">
-                <Form.Label>Password: </Form.Label>
+                <Form.Label className='font-style'>Password: </Form.Label>
                 <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
             </Form.Group>
             <Form.Group controlId="controlEmail">
-               <Form.Label>Email: </Form.Label> 
+               <Form.Label className='font-style'>Email: </Form.Label> 
                 <Form.Control type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
             </Form.Group>
             <Form.Group controlId="ControlBirthday">
-                <Form.Label>Birthday: </Form.Label>
+                <Form.Label className='font-style'>Birthday: </Form.Label>
                 <Form.Control type="date" value={Birthday} onChange={(e) => setBirthday(e.target.value)} required />
             </Form.Group>
-            <Button  varient="primary" type="submit">submit</Button>
+            <Button  varient="primary" type="submit" id="btn-login-nf">submit</Button>
         </Form>
+        </>
     );
 };

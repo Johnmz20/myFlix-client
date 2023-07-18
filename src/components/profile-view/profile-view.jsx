@@ -3,6 +3,7 @@ import {Button, Col, Form, Row,} from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieCard } from "../movie-card/movie-card";
+import './profile-view.scss';
 
 export const ProfileView = ({ user, token, setUser, movies, onLogout}) => {
     const [Username, setUsername ] = useState("");
@@ -61,17 +62,17 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout}) => {
     return(
         <>
         <h1>Profile</h1>
-        <Row>
-            <Col>
-                <div>Username: {user.Username}</div>
+        <Row className="profile-color">
+            <Col >
+                <div >Username: {user.Username}</div>
                 <div>Email: {user.Email}</div>
             </Col>
         </Row>
         <h2>Update your profile: </h2>
-        <Row md={2}>
+        <Row md={2} >
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formUsername">
-                <Form.Label>Username:</Form.Label>
+                <Form.Label className="profile-color">Username:</Form.Label>
                 <Form.Control
                     type="text"
                     value={Username}
@@ -81,7 +82,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout}) => {
                 />
                 </Form.Group>
                 <Form.Group controlId="FormPassword">
-                <Form.Label>Password: </Form.Label>
+                <Form.Label className="profile-color">Password: </Form.Label>
                 <Form.Control
                     type="password"
                     value={Password}
@@ -91,7 +92,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout}) => {
                 />
                 </Form.Group>
                 <Form.Group controlId="FormEmail">
-                <Form.Label>Email: </Form.Label>
+                <Form.Label className="profile-color">Email: </Form.Label>
                 <Form.Control
                     type="Email"
                     value={Email}
@@ -100,7 +101,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout}) => {
                 />
                 </Form.Group>
                 <Form.Group controlId="formBirthday">
-                <Form.Label>Birthday: </Form.Label>
+                <Form.Label className="profile-color">Birthday: </Form.Label>
                 <Form.Control
                     type="date"
                     value={Birthday}
@@ -108,14 +109,14 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout}) => {
                     required
                 />
                 </Form.Group>
-                <Button variant="primary" type="submit">Update</Button>
+                <Button className="button-colored" variant="primary" type="submit">Update</Button>
             </Form>
             <Form>
 
             </Form>
         </Row>
         <Row>
-            <h3>Favorite movies:</h3>
+            <h2>Favorite movies:</h2>
             {favoriteMovies.map((movie) => (
                 <Col  key={movie.id} >
                     <MovieCard movie={movie}></MovieCard>
