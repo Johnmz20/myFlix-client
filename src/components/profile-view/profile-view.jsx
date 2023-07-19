@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import {Button, Col, Form, Row,} from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { MovieCard } from "../movie-card/movie-card";
-import { MovieCard } from "../movie-card/movie-card";
 import './profile-view.scss';
 
 export const ProfileView = ({ user, token, setUser, movies, onLogout}) => {
+    console.log('ProfileView ===')
     const [Username, setUsername ] = useState("");
     const [Password, setPassword] = useState("");
     const [Email, setEmail] =useState("");
