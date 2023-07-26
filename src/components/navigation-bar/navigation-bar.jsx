@@ -1,12 +1,16 @@
+import React, {useState} from "react"; 
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './navigation-bar.scss';
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+
+export const NavigationBar = ({ user, onLoggedOut, setMovies }) => {
+  
+
   return (
     <Navbar bg="primary" expand="lg"> 
       <Container>
-        <Nav.Link class="nav-link" as={Link} to="/">
+        <Nav.Link className="nav-link" as={Link} to="/">
           Books App
         </Nav.Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -31,6 +35,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                 <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
               </>
             )}
+           
           </Nav>
         </Navbar.Collapse>
       </Container>
