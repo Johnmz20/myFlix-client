@@ -87,7 +87,7 @@ useEffect(() => {
 
 
       {user && <input type='search'style={{padding:10, marginTop:10, marginBottom:10,width:'25%'}} placeholder="Search movies" onChange={(e) =>setSearchQuery(e.target.value) }/>}
-      <Row className="justify-content-md-center">
+      <Row >
         <Routes>
           <Route
           path="/signup"

@@ -60,6 +60,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout}) => {
     }
     return(
         <>
+        <Col md={8} >
         <h1>Profile</h1>
         <Row className="profile-color">
             <Col >
@@ -68,7 +69,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout}) => {
             </Col>
         </Row>
         <h2>Update your profile: </h2>
-        <Row md={2} >
+        <Row >
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formUsername">
                 <Form.Label className="profile-color">Username:</Form.Label>
@@ -114,6 +115,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout}) => {
 
             </Form>
         </Row>
+        </Col>
         <Row>
             <h2>Favorite movies:</h2>
             {favoriteMovies.map((movie) => (
