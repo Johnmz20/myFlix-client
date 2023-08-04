@@ -7,7 +7,6 @@ import './movie-card.scss';
 export const MovieCard = (data) => {
   console.log('moviedata', data)
   if (!data.movie) {
-    // Render a fallback or return null if appropriate
     return null;
   }
     return (
