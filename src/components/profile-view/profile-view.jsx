@@ -65,11 +65,13 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
       <Row>
         <Col>
           <h2>Favorite movies:</h2>
-          {favoriteMovies.map((movie) => (
-            <Col key={movie.id} md={9}>
-              <MovieCard movie={movie}></MovieCard>
-            </Col>
-          ))}
+          <Row>
+            {favoriteMovies.map((movie) => (
+              <Col key={movie.id} md={4}>
+                <MovieCard movie={movie}></MovieCard>
+              </Col>
+            ))}
+          </Row>
         </Col>
         <Col>
           <h1>Profile</h1>
